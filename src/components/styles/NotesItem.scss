@@ -1,0 +1,119 @@
+@import 'constants';
+
+.notesItem__container {
+    width: 15.625rem;
+    height: 18.75rem;
+    margin: .625rem .3125rem;
+    border-radius: 10px;
+    border: 2px solid $secondaryColor;
+    overflow: hidden;
+    transition: .1s all;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    & a {
+      text-decoration: none;
+      color: black;
+    }
+    &:hover {
+      border-color: $activeColor;
+      cursor: pointer;
+    }
+    &-title {
+      border-bottom: 2px solid $secondaryColor;
+      height: 1.875rem;
+      padding: .3125rem .625rem;
+      display: flex;
+      align-content: space-between;
+      justify-content: center;
+      align-items: center;
+      h4 {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        letter-spacing: .03125rem;
+      }
+    }
+    &-MD_container {
+      padding: 0 .625rem;
+      text-overflow: ellipsis;
+    }
+    &_tags {
+      display: flex;
+      height: 1.25rem;
+      padding: 0 .625rem;
+      &-tag {
+        color: #2395ff;
+      }
+    }
+    &__delete {
+      &-container {
+        display: flex;
+        justify-content: flex-end;
+        padding: 0 .25rem .25rem 0;
+        > button {
+          margin-left: 5px;
+        }
+      }
+      &-btn {
+        outline: none;
+        border: none;
+        width: 1.875rem;
+        height: 1.875rem;
+        font-size: 1rem;
+        margin: 0 .01875rem .01875rem 0;
+        border: 1px solid red;
+        background-color: white;
+        border-radius: 7px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: red;
+        cursor: pointer;
+        &:hover {
+          background-color: red;
+          color: white;
+        }
+      }
+    }
+    &__fixed-btn {
+      outline: none;
+      border: none;
+      width: 1.875rem;
+      height: 1.875rem;
+      font-size: 1rem;
+      margin: 0 .01875rem .01875rem 0;
+      border: 1px solid #008000;
+      background-color: white;
+      border-radius: 7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #008000;
+      cursor: pointer;
+      &:hover {
+        background-color: #008000;
+        color: white;
+      }
+    }
+    &__cloned-btn {
+      outline: none;
+      border: none;
+      width: 1.875rem;
+      height: 1.875rem;
+      font-size: 1rem;
+      margin: 0 .01875rem .01875rem 0;
+      border: 1px solid #008000;
+      background-color: white;
+      border-radius: 7px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #008000;
+      cursor: pointer;
+      &:hover {
+        background-color: #008000;
+        color: white;
+      }
+    }
+  }

@@ -1,0 +1,30 @@
+@import 'constants';
+
+.contentHeader__container {
+    height: 8.125rem;
+    width: 100%;
+    padding-left: 1.875rem;
+    display: flex;
+    align-items: flex-start;
+    border-bottom: 2px solid $primaryColor;
+    flex-direction: column;
+    justify-content: space-around;
+    &-title {
+      font-family: Arial, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 2.5rem;
+      line-height: 2.875rem;
+      background: -webkit-linear-gradient(180deg, $primaryColor, $secondaryColor);
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+    &-stats {
+      font-family: Arial, sans-serif;
+      font-style: normal;
+      font-weight: bold;
+      font-size: 1.25rem;
+      line-height: 1.625rem;
+      color: $darkenColor;
+    }
+  }

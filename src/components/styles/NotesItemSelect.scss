@@ -1,0 +1,44 @@
+@import 'constants';
+
+.notesItemSelect__container {
+    width: 100%;
+    min-height: 37.5rem;
+    border-radius: .625rem;
+    border: 2px solid $secondaryColor;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    &-title {
+      &-container {
+        padding: .3125rem 1.875rem;
+        border-bottom: 2px solid $primaryColor;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+      &_btn-edit {
+        border: 2px solid $secondaryColor;
+        border-radius: 5px;
+        height: 2.5rem;
+        width: 4.375rem;
+        outline: none;
+        background-color: $secondaryColor;
+        color: white;
+        font-weight: bold;
+        transition: all .1s;
+        &:hover {
+          background-color: $primaryColor;
+        }
+      }
+    }
+    &-md-container {
+      padding: .625rem 1.875rem;
+    }
+    &_tags {
+      display: flex;
+      padding: 0 1.875rem;
+      &-tag {
+        color: #2395ff;
+      }
+    }
+  }

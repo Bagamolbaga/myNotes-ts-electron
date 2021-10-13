@@ -1,0 +1,92 @@
+@import 'constants';
+
+.notesList {
+    &__container {
+      padding-left: 1.875rem;
+      padding-top: .625rem;
+      display: flex;
+      flex-wrap: wrap;
+      overflow-y: scroll;
+      height: calc(100vh - 15.3125rem);
+
+    &::-webkit-scrollbar {
+        width: 1em;
+    }
+     
+    &::-webkit-scrollbar-track {
+      background-color: #d0d0d0;
+      border-radius: .3125rem;
+    }
+     
+    &::-webkit-scrollbar-thumb {
+      background-color: $primaryColor;
+      border-radius: .3125rem;
+    }
+    }
+    &__container-fixed {
+      padding-left: 1.875rem;
+      padding-top: .625rem;
+      display: flex;
+      flex-wrap: wrap;
+      height: auto;
+    }
+    &__container-loader {
+      display: flex;
+      justify-content: center;
+    }
+    &__back {
+      width: 1.875rem;
+      height: 1.875rem;
+      border-radius: .3125rem;
+      margin-top: .625rem;
+      margin-left: 1.875rem;
+      background-color: white;
+      color: $primaryColor;
+      border: 2px solid $primaryColor;
+      cursor: pointer;
+      &:hover {
+        color: $secondaryColor;
+        border: 2px solid $secondaryColor;
+      }
+    }
+    &__fixed_title {
+      font-size: 1.25rem;
+      margin: .625rem 0 0 1.875rem;
+    }
+    &__fixed_container-stats {
+      display: flex;
+      justify-content: space-between;
+      cursor: pointer;
+      transition: all .1s;
+      &:hover .notesList__fixed_btn-showFixedList {
+        background-color: $primaryColor;
+        color: white;
+      }
+    }
+    &__fixed_btn-showFixedList {
+      width: 1.875rem;
+      height: 1.875rem;
+      border-radius: .3125rem;
+      margin-top: .625rem;
+      margin-right: 1.875rem;
+      background-color: white;
+      color: $primaryColor;
+      border: 2px solid $primaryColor;
+    }
+    &__fixed_container {
+      padding-bottom: .625rem;
+      border-bottom: 2px solid $primaryColor;
+      transition: all .1s;
+    }
+    &__fixed_bottom-line {
+      width: 50%;
+      margin: 0 auto;
+      height: .125rem;
+      margin-top: .625rem;
+      background-color: $primaryColor;
+    }
+  }
+
+.rotateBtnShowList {
+  transform: rotate(180deg);
+}
