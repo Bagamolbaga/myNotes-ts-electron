@@ -3,8 +3,7 @@ import { createGroup, createNote, deleteNote, editNote, selectNote } from '../st
 import { store } from '../store/store'
 import { IGroup, INote } from '../types/state'
 
-export const socketRef = io('http://localhost:5000/')
-console.log(socketRef)
+export const socketRef = io('https://baga-my-notes-server-ts-v2.herokuapp.com')
 
 socketRef.on('connect', () => {
   console.log(`connect ${socketRef.id}`)

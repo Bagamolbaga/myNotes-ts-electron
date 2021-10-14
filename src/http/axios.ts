@@ -1,7 +1,7 @@
 import axios, { AxiosRequestConfig } from 'axios'
 
 const API = axios.create({
-  baseURL: 'http://localhost:5000/'
+  baseURL: 'https://baga-my-notes-server-ts-v2.herokuapp.com'
 })
 
 const interceptor = (config: AxiosRequestConfig) => {
