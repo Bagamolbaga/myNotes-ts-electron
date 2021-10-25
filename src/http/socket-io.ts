@@ -1,13 +1,10 @@
 import { io } from 'socket.io-client'
-import { createGroup, createNote, deleteNote, editNote, selectNote } from '../store/actions'
+import { createGroup } from '../store/actions/groupActions'
+import { createNote, deleteNote, editNote, selectNote } from '../store/actions/noteActions'
 import { store } from '../store/store'
 import { IGroup, INote } from '../types/state'
 
 export const socketRef = io('https://baga-my-notes-server-ts-v2.herokuapp.com')
-
-socketRef.on('connect', () => {
-  console.log(`connect ${socketRef.id}`)
-})
 
 socketRef.on('newNote', (data: INote) => {
   store.dispatch(createNote(data))
@@ -23,7 +20,6 @@ socketRef.on('editNote', (data: any) => {
 })
 
 socketRef.on('fixedNote', (data: any) => {
-  console.log(data)
   store.dispatch(editNote(data))
 })
 

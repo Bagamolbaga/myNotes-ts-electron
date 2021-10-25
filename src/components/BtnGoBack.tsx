@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useTypeSelector } from '../hooks/useTypeSelector'
 import { faChevronLeft } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { goBack } from '../store/actions'
+import { goBack } from '../store/actions/otherActions'
 
 const BtnGoBack: React.FC = () => {
   const history = useHistory()

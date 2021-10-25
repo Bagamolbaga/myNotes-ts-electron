@@ -11,7 +11,8 @@ interface NotesListProps {
 }
 
 const NotesList: React.FC<NotesListProps> = ({ search, isFixedList }) => {
-  const { notes, selectedGroup, loading } = useTypeSelector((state) => state)
+  const { notes, selectedGroup, loading} = useTypeSelector((state) => state)
+
   const query = new URLSearchParams(useLocation().search)
 
   let filteredNotes

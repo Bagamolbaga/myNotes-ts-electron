@@ -16,7 +16,7 @@ firebase.initializeApp(firebaseConfig)
 
 const storageRef = firebase.storage().ref()
 
-export const uploadPhoto = async (file: any): Promise<any> => {
+export const uploadPhoto = async (file: any) => {
   const snap = await storageRef.child(`${md5(file.name)}.jpg`).put(file)
   const url = await snap.ref.getDownloadURL()
   return url

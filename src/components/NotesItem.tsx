@@ -1,17 +1,17 @@
 import React from 'react'
 import { useHistory } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
-import MarkdownPreview from '@uiw/react-markdown-preview'
+import { useTypeSelector } from '../hooks/useTypeSelector'
 import { faTimes, faLink, faCopy } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { useTypeSelector } from '../hooks/useTypeSelector'
-import { selectNote } from '../store/actions'
-import { asyncDeleteNote, createAsyncNote, fixedNote, unFixedNote } from '../store/asyncActions'
+import { selectNote } from '../store/actions/noteActions'
+import { asyncDeleteNote, createAsyncNote, fixedNote, unFixedNote } from '../store/asyncActions/asyncNoteActions'
 import { INote } from '../types/state'
+import QuillEditor from './QuillEditor'
 import './styles/NotesItem.scss'
 
 interface NotesItemProps {
-  data: INote
+    data: INote
 }
 
 const NotesItem: React.FC<NotesItemProps> = ({ data }) => {
@@ -42,41 +42,32 @@ const NotesItem: React.FC<NotesItemProps> = ({ data }) => {
 
   const cloneHandler = (e: React.MouseEvent<HTMLButtonElement>) => {
     e.stopPropagation()
-    console.log('cloned')
-    dispatch(
-      createAsyncNote({
-        title: data.title,
-        text: data.text,
-        tags: data.tags,
-        group_id: data.group_id
-      })
-    )
+    console.log('cloned');
+    dispatch(createAsyncNote({
+      title: data.title,
+      text: data.text,
+      tags: data.tags,
+      group_id: data.group_id
+    }))
   }
 
   return (
-    <div
-      role="button"
-      tabIndex={0}
-      className="notesItem__container"
-      data-node-type="parent"
-      onClick={() => selectHandler(data.id)}
-    >
+    <div role="button" tabIndex={0} className="notesItem__container" data-node-type="parent" onClick={() => selectHandler(data.id)}>
       <div>
         <div className="notesItem__container-title">
           <h4>{data.title}</h4>
         </div>
         <div className="notesItem__container-MD_container">
-          <MarkdownPreview source={data.text} />
+          <QuillEditor className="notesItem__container__hideToolBar" value={data.text} />
         </div>
       </div>
       <div>
         <div className="notesItem__container_tags">
-          {data.tags &&
-            data.tags.map((tag) => (
-              <p key={tag + data.title} className="notesItem__container_tags-tag">
-                {`#${tag}`}
-              </p>
-            ))}
+          {data.tags && data.tags.map((tag) => (
+            <p key={tag + data.title} className="notesItem__container_tags-tag">
+              {`#${tag}`}
+            </p>
+          ))}
         </div>
         <div className="notesItem__container__delete-container">
           <button

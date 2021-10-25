@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { Row } from 'react-bootstrap'
 import { useDispatch } from 'react-redux'
 import { useTypeSelector } from '../hooks/useTypeSelector'
-import { logout } from '../store/asyncActions'
+import { logout } from '../store/asyncActions/asyncUserActions'
 import './styles/Avatar.scss'
 
 const Avatar: React.FC = () => {

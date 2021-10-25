@@ -1,13 +1,13 @@
 import React from 'react'
 import { useParams, useHistory } from 'react-router-dom'
-import MarkdownPreview from '@uiw/react-markdown-preview'
 import { faPen } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { useTypeSelector } from '../hooks/useTypeSelector'
+import QuillEditor from './QuillEditor'
 import './styles/NotesItemSelect.scss'
 
 interface IParams {
-  noteId: string
+    noteId: string
 }
 
 const NotesItemSelect: React.FC = () => {
@@ -15,7 +15,7 @@ const NotesItemSelect: React.FC = () => {
   const { noteId } = useParams<IParams>()
   const { notes } = useTypeSelector((state) => state)
   const note = notes.filter((item) => item.id === Number(noteId))[0]
-console.log(history)
+
   return (
     <div className="notesItemSelect__container">
       <div>
@@ -30,15 +30,11 @@ console.log(history)
           </button>
         </div>
         <div className="notesItemSelect__container-md-container">
-          <MarkdownPreview source={note.text} />
+          <QuillEditor value={note.text} />
         </div>
       </div>
       <div className="notesItemSelect__container_tags">
-        {notes.length &&
-          note.tags &&
-          note.tags.map((tag) => (
-            <p key={tag + note.title} className="notesItemSelect__container_tags-tag">{`#${tag}`}</p>
-          ))}
+        {notes.length && note.tags && note.tags.map((tag) => (<p key={tag + note.title} className="notesItemSelect__container_tags-tag">{`#${tag}`}</p>))}
       </div>
     </div>
   )

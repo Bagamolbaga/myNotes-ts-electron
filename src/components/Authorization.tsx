@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux'
 import { useTypeSelector } from '../hooks/useTypeSelector'
 import { Row } from 'react-bootstrap'
 import { uploadPhoto } from '../http/firebase'
-import { registration, login, sendEmailResetPassword } from '../store/asyncActions'
+import { registration, login, sendEmailResetPassword } from '../store/asyncActions/asyncUserActions'
 import './styles/Authorization.scss'
 
 interface AuthorizationProps {

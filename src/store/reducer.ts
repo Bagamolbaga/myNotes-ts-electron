@@ -1,5 +1,5 @@
 import { IState } from '../types/state'
-import { IAction, actionTypes } from './actions'
+import { IActions, userActionTypes, groupActionTypes, noteActionTypes, otherActionTypes } from './actions/index'
 
 const initialState: IState = {
     selectNoteId: false,
@@ -15,31 +15,31 @@ const initialState: IState = {
     notes: [],
   }
 
-export const reducer = (state = initialState, action: IAction) : IState => {
+export const reducer = (state = initialState, action: IActions) : IState => {
     switch (action.type) {
-        case actionTypes.GET_NOTES:
+        case noteActionTypes.GET_NOTES:
       return {
         ...state,
         notes: [...action.payload],
       }
-    case actionTypes.CREATE_NOTE:
+    case noteActionTypes.CREATE_NOTE:
       return {
         ...state,
         selectNoteId: action.payload.id,
         showCeateNoteForm: false,
         notes: [...state.notes, action.payload],
       }
-    case actionTypes.GET_GROUP:
+    case groupActionTypes.GET_GROUP:
       return {
         ...state,
         groups: [...action.payload],
       }
-    case actionTypes.CREATE_GROUP:
+    case groupActionTypes.CREATE_GROUP:
       return {
         ...state,
         groups: [...state.groups, action.payload],
       }
-    case actionTypes.SHOW_ALL_NOTES:
+    case noteActionTypes.SHOW_ALL_NOTES:
       return {
         ...state,
         selectNoteId: false,
@@ -47,29 +47,29 @@ export const reducer = (state = initialState, action: IAction) : IState => {
         showCeateNoteForm: false,
         showEditNoteForm: false,
       }
-    case actionTypes.SHOW_CREATE_NOTE_FORM:
+    case noteActionTypes.SHOW_CREATE_NOTE_FORM:
       return {
         ...state,
         showCeateNoteForm: true,
         selectedGroup: 'All',
       }
-    case actionTypes.SELECT_ACTIVE_GROUP:
+    case groupActionTypes.SELECT_ACTIVE_GROUP:
       return {
         ...state,
         selectedGroup: action.payload,
         selectNoteId: false,
       }
-    case actionTypes.SHOW_EDIT_NOTE_FORM:
+    case noteActionTypes.SHOW_EDIT_NOTE_FORM:
       return {
         ...state,
         showEditNoteForm: true,
       }
-    case actionTypes.SELECT_NOTE:
+    case noteActionTypes.SELECT_NOTE:
       return {
         ...state,
         selectNoteId: action.payload,
       }
-    case actionTypes.EDIT_SELECT_NOTE:
+    case noteActionTypes.EDIT_SELECT_NOTE:
       const notes = [...state.notes]
       notes.map((note) => {
         const item = note
@@ -95,13 +95,13 @@ export const reducer = (state = initialState, action: IAction) : IState => {
         notes: [...notes],
         showEditNoteForm: false,
       }
-    case actionTypes.DELETE_NOTE:
+    case noteActionTypes.DELETE_NOTE:
       const nots = state.notes.filter((note) => note.id !== action.payload)
       return {
         ...state,
         notes: [...nots],
       }
-    case actionTypes.SET_USER:
+    case userActionTypes.SET_USER:
       return {
         ...state,
         user: {
@@ -111,7 +111,7 @@ export const reducer = (state = initialState, action: IAction) : IState => {
           isLogin: true,
         },
       }
-    case actionTypes.LOGOUT:
+    case userActionTypes.LOGOUT:
       return {
         ...state,
         user: {
@@ -120,20 +120,20 @@ export const reducer = (state = initialState, action: IAction) : IState => {
         groups: [],
         notes: []
       }
-    case actionTypes.SET_EROR:
+    case userActionTypes.SET_EROR:
       return {
         ...state,
         authError: action.payload,
       }
-    case actionTypes.GO_BACK:
+    case otherActionTypes.GO_BACK:
       return {
         ...state,
         selectNoteId: false,
-        selectedGroup: 'All',
+        // selectedGroup: 'All',
         showCeateNoteForm: false,
         showEditNoteForm: false,
       }
-    case actionTypes.SET_LOADING:
+    case otherActionTypes.SET_LOADING:
       return {
         ...state,
         loading: action.payload

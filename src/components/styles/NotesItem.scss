@@ -38,6 +38,14 @@
       padding: 0 .625rem;
       text-overflow: ellipsis;
     }
+    &__hideToolBar {
+      .ql-toolbar {
+        display: none;
+      }
+      .ql-container input {
+        cursor: pointer;
+      }
+    }
     &_tags {
       display: flex;
       height: 1.25rem;
